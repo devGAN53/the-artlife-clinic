@@ -26,35 +26,37 @@
 
     <!-- Main Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-blue-700 text-white p-3 rounded-lg shadow">
-                    <i class="fa-solid fa-hospital text-2xl"></i>
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="bg-blue-700 text-white p-2.5 sm:p-3 rounded-lg shadow">
+                    <i class="fa-solid fa-hospital text-xl sm:text-2xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-lg md:text-xl font-bold text-blue-900 leading-tight">Klinik Kesihatan Kota Damansara</h1>
-                    <p class="text-xs text-slate-500">Kementerian Kesihatan Malaysia (KKM) • Selangor</p>
+                    <h1 class="text-sm sm:text-xl font-bold text-blue-900 leading-tight">Klinik Kesihatan Kota Damansara</h1>
+                    <p class="text-[10px] sm:text-xs text-slate-500">Kementerian Kesihatan Malaysia (KKM) • Selangor</p>
                 </div>
             </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#queue" class="hover:text-blue-600 transition">Queue Status</a>
-                <a href="#appointment" class="hover:text-blue-600 transition text-blue-600 font-semibold">Book Inquiry</a>
-                <button onclick="toggleAdminPanel()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-md text-xs font-semibold border border-slate-300 transition">
-                    <i class="fa-solid fa-lock mr-1"></i> Staff Portal
+            <!-- Navigation Links & Staff Portal Button (Fixed for Mobile) -->
+            <div class="flex items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium">
+                <a href="#services" class="hidden md:inline hover:text-blue-600 transition">Services</a>
+                <a href="#queue" class="hidden md:inline hover:text-blue-600 transition">Queue Status</a>
+                <a href="#appointment" class="hidden sm:inline hover:text-blue-600 transition text-blue-600 font-semibold">Book Inquiry</a>
+                <button onclick="toggleAdminPanel()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1.5 sm:px-3 rounded-md text-xs font-semibold border border-slate-300 transition flex items-center gap-1 shadow-sm">
+                    <i class="fa-solid fa-lock text-slate-500"></i> 
+                    <span>Staff Portal</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Dynamic Announcement Banner (Controlled via Admin) -->
-    <div id="announcement-banner" class="bg-amber-50 border-b border-amber-200 px-4 py-3 text-amber-900 text-sm">
+    <div id="announcement-banner" class="bg-amber-50 border-b border-amber-200 px-4 py-3 text-amber-900 text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-bullhorn text-amber-600"></i>
                 <span id="banner-text"><strong>Notice:</strong> Walk-ins for outpatient general consultations are open. Please bring your MyKad and appointment cards if applicable.</span>
             </div>
-            <span class="text-xs bg-amber-200 px-2 py-0.5 rounded font-medium">Live Update</span>
+            <span class="text-[10px] sm:text-xs bg-amber-200 px-2 py-0.5 rounded font-medium shrink-0 ml-2">Live Update</span>
         </div>
     </div>
 
@@ -68,10 +70,10 @@
                     Providing reliable public health services including outpatient check-ups, maternal & child care, immunizations, and chronic disease management right in Jalan Pekaka.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#appointment" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow transition flex items-center gap-2">
+                    <a href="#appointment" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow transition flex items-center gap-2 text-sm">
                         <i class="fa-solid fa-calendar-check"></i> Request Appointment Slot
                     </a>
-                    <a href="#services" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/20 transition">
+                    <a href="#services" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/20 transition text-sm">
                         View Departments
                     </a>
                 </div>
