@@ -3,290 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Kesihatan Kota Damansara | Official Community Portal</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>The Artlife Clinic | Cova Square, Kota Damansara</title>
+    <!-- Tailwind CSS CDN for modern, clean styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- Top Emergency & Info Bar -->
-    <div class="bg-red-700 text-white text-xs py-2 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-triangle-exclamation animate-pulse"></i>
-                <span><strong>Emergency?</strong> For medical emergencies, please dial 999 or visit the nearest Hospital Emergency Department.</span>
-            </div>
-            <div class="flex items-center gap-4">
-                <span><i class="fa-solid fa-phone"></i> Clinic Line: 03-6140 1078</span>
-                <span class="hidden md:inline">|</span>
-                <span class="hidden md:inline"><i class="fa-solid fa-clock"></i> Mon - Fri: 8:00 AM - 5:00 PM</span>
-            </div>
-        </div>
+    <!-- Live Announcement Banner -->
+    <div id="announcement-banner" class="bg-teal-600 text-white px-4 py-2 text-center text-sm font-medium transition-all duration-300">
+        <span id="banner-text">Welcome to The Artlife Clinic. Professional family care and health screening services available.</span>
     </div>
 
-    <!-- Main Header -->
+    <!-- Header / Navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2 sm:gap-3">
-                <div class="bg-blue-700 text-white p-2.5 sm:p-3 rounded-lg shadow">
-                    <i class="fa-solid fa-hospital text-xl sm:text-2xl"></i>
-                </div>
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-teal-100 text-teal-700 p-2 rounded-lg font-bold text-lg">AL</div>
                 <div>
-                    <h1 class="text-sm sm:text-xl font-bold text-blue-900 leading-tight">Klinik Kesihatan Kota Damansara</h1>
-                    <p class="text-[10px] sm:text-xs text-slate-500">Kementerian Kesihatan Malaysia (KKM) • Selangor</p>
+                    <h1 class="text-xl font-bold text-slate-900 tracking-tight">The Artlife Clinic</h1>
+                    <p class="text-xs text-slate-500">Family Medicine & General Practice</p>
                 </div>
             </div>
-            <!-- Navigation Links & Staff Portal Button (Fixed for Mobile) -->
-            <div class="flex items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium">
-                <a href="#services" class="hidden md:inline hover:text-blue-600 transition">Services</a>
-                <a href="#queue" class="hidden md:inline hover:text-blue-600 transition">Queue Status</a>
-                <a href="#appointment" class="hidden sm:inline hover:text-blue-600 transition text-blue-600 font-semibold">Book Inquiry</a>
-                <button onclick="toggleAdminPanel()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1.5 sm:px-3 rounded-md text-xs font-semibold border border-slate-300 transition flex items-center gap-1 shadow-sm">
-                    <i class="fa-solid fa-lock text-slate-500"></i> 
-                    <span>Staff Portal</span>
-                </button>
-            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+                <a href="#services" class="hover:text-teal-600 transition">Services</a>
+                <a href="#about" class="hover:text-teal-600 transition">About Us</a>
+                <a href="#inquiry" class="hover:text-teal-600 transition">Inquiries</a>
+                <a href="#admin" class="text-teal-600 font-semibold hover:underline">Staff Portal</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Dynamic Announcement Banner (Controlled via Admin) -->
-    <div id="announcement-banner" class="bg-amber-50 border-b border-amber-200 px-4 py-3 text-amber-900 text-xs sm:text-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-bullhorn text-amber-600"></i>
-                <span id="banner-text"><strong>Notice:</strong> Walk-ins for outpatient general consultations are open. Please bring your MyKad and appointment cards if applicable.</span>
-            </div>
-            <span class="text-[10px] sm:text-xs bg-amber-200 px-2 py-0.5 rounded font-medium shrink-0 ml-2">Live Update</span>
-        </div>
-    </div>
-
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-12 px-4">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="bg-blue-600 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Community Healthcare Hub</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-4 mb-4 leading-tight">Quality Primary Care For Kota Damansara Residents</h2>
-                <p class="text-blue-100 text-sm md:text-base mb-6 leading-relaxed">
-                    Providing reliable public health services including outpatient check-ups, maternal & child care, immunizations, and chronic disease management right in Jalan Pekaka.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#appointment" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow transition flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-calendar-check"></i> Request Appointment Slot
-                    </a>
-                    <a href="#services" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/20 transition text-sm">
-                        View Departments
-                    </a>
-                </div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl">
-                <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white">
-                    <i class="fa-solid fa-circle-info text-emerald-400"></i> Quick Information
-                </h3>
-                <ul class="space-y-3 text-sm text-blue-100">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-location-dot mt-1 text-blue-300"></i>
-                        <span>No. 58, Tingkat 3, Jalan Pekaka 8/3, Kota Damansara, 47810 Petaling Jaya, Selangor</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-phone-volume text-blue-300"></i>
-                        <span>03-6140 1078 / 03-6140 1026</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-clock text-blue-300"></i>
-                        <span>Monday – Friday: 8:00 AM – 5:00 PM</span>
-                    </li>
-                </ul>
+    <section class="bg-gradient-to-br from-teal-500 to-emerald-700 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="bg-teal-400 bg-opacity-30 text-teal-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Cova Square, Kota Damansara</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold mt-4 mb-4 leading-tight">Your Trusted Neighborhood Healthcare Partner</h2>
+            <p class="text-teal-100 text-base md:text-lg mb-8 max-w-2xl mx-auto">Providing comprehensive, patient-centered general practice care, health screenings, and family wellness close to home.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#inquiry" class="bg-white text-teal-700 font-bold px-6 py-3 rounded-lg shadow hover:bg-teal-50 transition">Book Inquiry / Appointment</a>
+                <a href="#services" class="bg-teal-600 bg-opacity-40 border border-teal-300 text-white font-semibold px-6 py-3 rounded-lg hover:bg-teal-600 transition">View Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Live Queue Status Simulation -->
-    <section id="queue" class="py-10 max-w-7xl mx-auto px-4">
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-users-line text-blue-600"></i> Live Counter Status
-                    </h3>
-                    <p class="text-xs text-slate-500">Estimated queue progression tracker for today</p>
-                </div>
-                <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Clinic Operational
-                </span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
-                    <span class="text-xs font-semibold text-slate-500 uppercase">Counter 1 & 2 (General / Pesakit Luar)</span>
-                    <div id="counter-1" class="text-3xl font-black text-blue-700 my-2">A-142</div>
-                    <span class="text-xs text-slate-400">Now Serving Ticket</span>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
-                    <span class="text-xs font-semibold text-slate-500 uppercase">Counter 3 (Maternal & Child / MCH)</span>
-                    <div id="counter-2" class="text-3xl font-black text-indigo-700 my-2">M-058</div>
-                    <span class="text-xs text-slate-400">Now Serving Ticket</span>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
-                    <span class="text-xs font-semibold text-slate-500 uppercase">Counter 4 (Pharmacy / Ubat)</span>
-                    <div id="counter-3" class="text-3xl font-black text-emerald-700 my-2">P-210</div>
-                    <span class="text-xs text-slate-400">Now Serving Ticket</span>
-                </div>
-            </div>
+    <!-- Quick Info Cards -->
+    <section class="max-w-6xl mx-auto px-4 -mt-8 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center">📍 Location</h3>
+            <p class="text-sm text-slate-600">G-11, Ground Floor, Cova Square, Jalan Teknologi, PJU 5, Kota Damansara, 47810 Petaling Jaya, Selangor</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center">🕒 Operating Hours</h3>
+            <p class="text-sm text-slate-600">Monday – Saturday: 9:00 AM – 9:00 PM<br>Sunday: Closed / Public Holidays By Notice</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center">📞 Direct Contact</h3>
+            <p class="text-sm text-slate-600">Phone: Available via Inquiry Form<br>Email: theartlifeclinic@gmail.com</p>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-10 max-w-7xl mx-auto px-4">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <h3 class="text-2xl font-bold text-slate-900">Core Healthcare Services</h3>
-            <p class="text-sm text-slate-500 mt-1">Standard medical divisions available at Klinik Kesihatan Kota Damansara</p>
+    <section id="services" class="max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold text-slate-900">Our Clinical Services</h3>
+            <p class="text-slate-500 text-sm mt-1">Comprehensive care tailored for individuals and families</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Service 1 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-stethoscope"></i>
-                </div>
-                <h4 class="font-bold text-lg text-slate-900 mb-2">Outpatient Department (JPL)</h4>
-                <p class="text-sm text-slate-600 mb-4">General check-ups for acute illnesses, fever, cough, flu, and routine evaluations.</p>
-                <ul class="text-xs text-slate-500 space-y-1.5 border-t border-slate-100 pt-3">
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Chronic Disease Follow-up (Diabetes/HBP)</li>
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Minor Procedures & Dressing</li>
-                </ul>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-teal-600 text-3xl mb-3">🩺</div>
+                <h4 class="font-bold text-lg mb-2">General Consultation</h4>
+                <p class="text-sm text-slate-600">Diagnosis and treatment for acute illnesses, common infections, and routine medical checkups.</p>
             </div>
-
-            <!-- Service 2 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-baby"></i>
-                </div>
-                <h4 class="font-bold text-lg text-slate-900 mb-2">Maternal & Child Health (MCH)</h4>
-                <p class="text-sm text-slate-600 mb-4">Comprehensive care for mothers, infants, and toddlers under national health guidelines.</p>
-                <ul class="text-xs text-slate-500 space-y-1.5 border-t border-slate-100 pt-3">
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Antenatal (Pink Book) & Postnatal Care</li>
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Childhood Immunization & Growth Tracking</li>
-                </ul>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-teal-600 text-3xl mb-3">🩸</div>
+                <h4 class="font-bold text-lg mb-2">Health Screenings & Labs</h4>
+                <p class="text-sm text-slate-600">Blood profiling, chronic disease monitoring (diabetes, hypertension), and medical report checkups.</p>
             </div>
-
-            <!-- Service 3 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-pills"></i>
-                </div>
-                <h4 class="font-bold text-lg text-slate-900 mb-2">Pharmacy & Screening</h4>
-                <p class="text-sm text-slate-600 mb-4">Prescription refills, medication counseling, and community health screening tests.</p>
-                <ul class="text-xs text-slate-500 space-y-1.5 border-t border-slate-100 pt-3">
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Medication Refill & Review</li>
-                    <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Pre-marriage & General Medical Screening</li>
-                </ul>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="text-teal-600 text-3xl mb-3">💉</div>
+                <h4 class="font-bold text-lg mb-2">Vaccinations & Procedures</h4>
+                <p class="text-sm text-slate-600">Adult and pediatric immunizations, minor surgical procedures, wound care, and medical certificates.</p>
             </div>
         </div>
     </section>
 
-    <!-- Appointment / Inquiry Section -->
-    <section id="appointment" class="py-12 bg-slate-100 border-t border-slate-200">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
-                <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">Patient Appointment Inquiry</h3>
-                <p class="text-xs text-slate-500 text-center mb-6">Submit an inquiry or request slot details for non-emergency visits.</p>
-                
-                <form id="booking-form" onsubmit="handleBooking(event)" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name (as per MyKad)</label>
-                            <input type="text" required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. Ahmad bin Ali">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">MyKad / Passport Number</label>
-                            <input type="text" required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. 950101-10-xxxx">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Select Department</label>
-                            <select class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white">
-                                <option>Outpatient General (Pesakit Luar)</option>
-                                <option>Maternal & Child Health (Klinik Ibu & Anak)</option>
-                                <option>Chronic Disease Follow-up</option>
-                                <option>Health Screening / Check-up</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Date</label>
-                            <input type="date" required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Phone Number</label>
-                        <input type="tel" required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="012-3456789">
-                    </div>
-                    <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2.5 rounded-lg text-sm transition shadow">
-                        Submit Appointment Request
-                    </button>
-                </form>
-                <div id="success-msg" class="hidden mt-4 p-4 bg-emerald-50 text-emerald-800 text-sm rounded-lg text-center font-medium">
-                    <i class="fa-solid fa-circle-check mr-2"></i> Request received successfully! Reference code: <span id="ref-code" class="font-bold underline"></span>. Our staff will contact you to confirm.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Staff Admin Modal Panel (Hidden by default) -->
-    <div id="admin-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="font-bold text-lg text-slate-900"><i class="fa-solid fa-sliders text-blue-600 mr-2"></i> Staff Control Portal</h3>
-                <button onclick="toggleAdminPanel()" class="text-slate-400 hover:text-slate-600 text-sm font-bold">✕ Close</button>
-            </div>
-            <p class="text-xs text-slate-500 mb-4">Clinic staff can update live site notices instantly here:</p>
+    <!-- Patient Inquiry Section -->
+    <section id="inquiry" class="bg-slate-100 py-12 px-4 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Patient Inquiry & Request Form</h3>
+            <p class="text-sm text-slate-500 mb-6">Send an inquiry regarding appointment schedules, medication availability, or service pricing.</p>
             
-            <div class="space-y-4">
+            <form id="patient-form" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Update Announcement Banner Message</label>
-                    <textarea id="admin-banner-input" rows="3" class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">Notice: Walk-ins for outpatient general consultations are open. Please bring your MyKad and appointment cards if applicable.</textarea>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Name</label>
+                    <input type="text" id="visitor-name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none text-sm" placeholder="e.g. Ahmad bin Ali">
                 </div>
-                <button onclick="updateBanner()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-sm transition">
-                    Publish Update to Live Site
-                </button>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number</label>
+                    <input type="tel" id="visitor-phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none text-sm" placeholder="e.g. 012-3456789">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Inquiry Type / Service Needed</label>
+                    <select id="visitor-service" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none text-sm bg-white">
+                        <option>General GP Consultation</option>
+                        <option>Health Screening Package</option>
+                        <option>Vaccination Enquiry</option>
+                        <option>Other Services / General Question</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Message / Preferred Time</label>
+                    <textarea id="visitor-message" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none text-sm" placeholder="Let us know when you plan to drop by..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-teal-600 text-white font-bold py-2.5 rounded-lg hover:bg-teal-700 transition text-sm shadow">Submit Inquiry</button>
+            </form>
+            <div id="form-success" class="hidden mt-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-lg text-center">
+                Thank you! Your inquiry has been noted. Our staff will get back to you shortly.
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Staff Announcement Control Portal -->
+    <section id="admin" class="max-w-2xl mx-auto px-4 py-12">
+        <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-lg">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-base flex items-center">⚙️ Staff Announcement Control Panel</h3>
+                <span class="text-xs bg-slate-800 text-teal-400 px-2 py-1 rounded">Live Editor</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Clinic staff can use this panel to instantly update the live announcement banner at the top of the website without editing code.</p>
+            <div class="space-y-3">
+                <input type="text" id="admin-input" class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500" value="Welcome to The Artlife Clinic. Professional family care and health screening services available.">
+                <button id="update-banner-btn" class="bg-teal-600 text-white font-semibold text-xs px-4 py-2 rounded-lg hover:bg-teal-500 transition">Update Live Banner</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-xs">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <div>
-                <p class="font-bold text-slate-200">Klinik Kesihatan Kota Damansara</p>
-                <p class="mt-1">Unnoficial Community Resource Portal • Built to support public health engagement.</p>
-            </div>
-            <div>
-                <p>&copy; 2026 Community Web Project. All rights reserved.</p>
-            </div>
-        </div>
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+        <p>&copy; 2026 The Artlife Clinic (Cova Square, Kota Damansara). All rights reserved.</p>
+        <p class="mt-1">Developed as a custom digital business solution.</p>
     </footer>
 
-    <!-- JavaScript Interactive Handlers -->
+    <!-- Interactive Scripts -->
     <script>
-        function toggleAdminPanel() {
-            const modal = document.getElementById('admin-modal');
-            modal.classList.toggle('hidden');
-        }
+        // Update Banner Script
+        document.getElementById('update-banner-btn').addEventListener('click', function() {
+            const newText = document.getElementById('admin-input').value;
+            const bannerText = document.getElementById('banner-text');
+            if(newText.trim() !== "") {
+                bannerText.textContent = newText;
+                alert('Live banner updated successfully!');
+            }
+        });
 
-        function updateBanner() {
-            const text = document.getElementById('admin-banner-input').value;
-            document.getElementById('banner-text').innerHTML = "<strong>Notice:</strong> " + text;
-            toggleAdminPanel();
-            alert("Announcement successfully updated on the live page!");
-        }
-
-        function handleBooking(event) {
-            event.preventDefault();
-            const randomCode = 'KD-' + Math.floor(100000 + Math.random() * 900000);
-            document.getElementById('ref-code').innerText = randomCode;
-            document.getElementById('success-msg').classList.remove('hidden');
-            document.getElementById('booking-form').reset();
-        }
+        // Form Submission Simulation
+        document.getElementById('patient-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('form-success').classList.remove('hidden');
+            this.reset();
+        });
     </script>
 </body>
 </html>
